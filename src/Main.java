@@ -5,7 +5,7 @@ public class Main {
         ListadeContatos lista = new ListadeContatos();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("adicionar - Adiciona um contato\n" +
+        System.out.println("\nadicionar - Adiciona um contato\n" +
                 "remover - Remove um contato\n" +
                 "buscar - Busca um contato\n" +
                 "listar - Lista todos os contatos\n" +
@@ -30,7 +30,7 @@ public class Main {
                 default:
                     System.out.println("Comando inválido");
             }
-            System.out.println("adicionar - Adiciona um contato\n" +
+            System.out.println("\nadicionar - Adiciona um contato\n" +
                     "remover - Remove um contato\n" +
                     "buscar - Busca um contato\n" +
                     "listar - Lista todos os contatos\n" +
