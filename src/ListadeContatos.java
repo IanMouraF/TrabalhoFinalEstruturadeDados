@@ -18,18 +18,42 @@ public class ListadeContatos {
 
         System.out.println("Digite o nome do contato: ");
         String nome = scanner.nextLine();
+        if(somenteLetras(nome) == false){
+            System.out.println("Nome inválido\n");
+
+            criarContato();
+            return;
+        }else
 
         System.out.println("Digite o telefone do contato: ");
         String telefone = scanner.nextLine();
+        if(somenteNumeros(telefone) == false){
+            System.out.println("Telefone inválido\n");
+
+            criarContato();
+            return;
+        }else
 
         System.out.println("Digite o email do contato: ");
         String email = scanner.nextLine();
 
         System.out.println("Digite a data de nascimento do contato: ");
         String dataNascimento = scanner.nextLine();
+        if(somenteData(dataNascimento) == false){
+            System.out.println("Data de nascimento inválida\n");
+
+            criarContato();
+            return;
+        }else
 
         System.out.println("Digite o celular do contato: ");
         String celular = scanner.nextLine();
+        if(somenteNumeros(celular) == false){
+            System.out.println("Celular inválido\n");
+
+            criarContato();
+            return;
+        }
 
         ContatoCelular contato = new ContatoCelular(nome, telefone, email, dataNascimento, celular);
         this.adicionarContato(contato);
@@ -56,7 +80,7 @@ public class ListadeContatos {
         if (this.contatos.containsKey(nome)) {
             return this.contatos.get(nome);
         } else {
-            System.out.println("Contato não encontrado\n");
+            System.out.println("Contato não encontrado");
             return null;
         }
     }
@@ -73,5 +97,32 @@ public class ListadeContatos {
             System.out.println("-----------------------------\n");
         }
 
+    }
+
+    public boolean somenteLetras(String nome) {
+        for (int i = 0; i < nome.length(); i++) {
+            if (!Character.isLetter(nome.charAt(i)) && (nome.charAt(i) != ' ')) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean somenteNumeros(String nome) {
+        for (int i = 0; i < nome.length(); i++) {
+            if (!Character.isDigit(nome.charAt(i)) && (nome.charAt(i) != '.' && nome.charAt(i) != '-' && nome.charAt(i) != '(' && nome.charAt(i) != ')' && nome.charAt(i) != ' ')) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean somenteData(String nome) {
+        for (int i = 0; i < nome.length(); i++) {
+            if (!Character.isDigit(nome.charAt(i)) && (nome.charAt(i) != '/')) {
+                return false;
+            }
+        }
+        return true;
     }
 }
